@@ -7,12 +7,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Divider
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.material.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -44,12 +40,25 @@ fun MyApp(content: @Composable () -> Unit) {
 
 @Composable
 fun Content(names: List<String>) {
+    var counterState by remember {
+        mutableStateOf(0)
+    }
+
     Column {
         for (name in names) {
             Greeting(name = name)
             Divider()
         }
-        Counter()
+        Counter(
+            count = counterState,
+            updateCount = { newCount: Int ->
+                counterState = newCount
+                counterState
+            }
+        )
+        if (counterState > 5) {
+            Text("I love to count!")
+        }
     }
 }
 
@@ -67,13 +76,9 @@ fun Greeting(name: String) {
 }
 
 @Composable
-fun Counter() {
-    var counter by remember {
-        mutableStateOf(0)
-    }
-
-    Button(onClick = { counter++ }) {
-        Text(text = "Clicked $counter times")
+fun Counter(count: Int, updateCount: (Int) -> Int) {
+    Button(onClick = { updateCount(count + 1) }) {
+        Text("Clicked $count times")
     }
 }
 
