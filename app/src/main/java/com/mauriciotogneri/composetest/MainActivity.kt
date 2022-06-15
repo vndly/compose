@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Divider
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -48,6 +49,7 @@ fun Content(names: List<String>) {
             Greeting(name = name)
             Divider()
         }
+        Counter()
     }
 }
 
@@ -61,6 +63,17 @@ fun Greeting(name: String) {
             text = "Hello, $name!",
             modifier = Modifier.padding(16.dp)
         )
+    }
+}
+
+@Composable
+fun Counter() {
+    var counter by remember {
+        mutableStateOf(0)
+    }
+
+    Button(onClick = { counter++ }) {
+        Text(text = "Clicked $counter times")
     }
 }
 
