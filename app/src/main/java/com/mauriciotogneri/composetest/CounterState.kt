@@ -6,7 +6,7 @@ import androidx.compose.runtime.setValue
 import com.mauriciotogneri.composetest.base.BaseState
 
 class CounterState : BaseState() {
-    var counter by mutableStateOf(1)
+    var counter by mutableStateOf(0)
 
     fun increaseCounter() {
         counter++
