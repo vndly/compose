@@ -1,3 +1,5 @@
 package com.mauriciotogneri.composetest.base
 
-open class BaseState
+import android.app.Activity
+
+open class BaseState(val activity: Activity)
