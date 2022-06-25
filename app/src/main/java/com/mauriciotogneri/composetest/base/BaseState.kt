@@ -1,5 +1,5 @@
 package com.mauriciotogneri.composetest.base
 
-import android.app.Activity
+import androidx.lifecycle.ViewModel
 
-open class BaseState(val activity: Activity)
+open class BaseState : ViewModel()

@@ -6,7 +6,7 @@ import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.mauriciotogneri.composetest.base.BaseView
 import com.mauriciotogneri.composetest.ui.theme.ComposeTestTheme
