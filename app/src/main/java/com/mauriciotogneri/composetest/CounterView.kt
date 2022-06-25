@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import com.mauriciotogneri.composetest.base.BaseView
 import com.mauriciotogneri.composetest.ui.theme.ComposeTestTheme
 
-class CounterView(state: CounterState) : BaseView<CounterState>(state) {
+class CounterView(private val state: CounterState) : BaseView() {
     @Composable
     override fun Root() {
         ComposeTestTheme {

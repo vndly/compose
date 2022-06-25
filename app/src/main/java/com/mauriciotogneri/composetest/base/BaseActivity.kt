@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 
-abstract class BaseActivity<S, V> : ComponentActivity() where S : BaseState, V : BaseView<S> {
+abstract class BaseActivity<S, V> : ComponentActivity() where S : BaseState, V : BaseView {
     lateinit var state: S
     lateinit var view: V
 
