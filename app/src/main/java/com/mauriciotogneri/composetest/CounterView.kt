@@ -28,7 +28,7 @@ class CounterView(private val state: CounterState) : BaseView() {
     fun Content() {
         Column {
             CounterButton(
-                count = state.counter,
+                count = state.counter.value,
                 updateCount = { state.increaseCounter() }
             )
         }
