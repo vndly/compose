@@ -26,24 +26,17 @@ class CounterView(state: CounterState) : BaseView<CounterState>(state) {
 
     @Composable
     fun Content() {
-        var counterState by remember {
-            mutableStateOf(0)
-        }
-
         Column {
             CounterButton(
-                count = counterState,
-                updateCount = { newCount: Int ->
-                    counterState = newCount
-                    counterState
-                }
+                count = state.counter,
+                updateCount = { state.increaseCounter() }
             )
         }
     }
 
     @Composable
-    fun CounterButton(count: Int, updateCount: (Int) -> Int) {
-        Button(onClick = { updateCount(count + 1) }) {
+    fun CounterButton(count: Int, updateCount: () -> Unit) {
+        Button(onClick = { updateCount() }) {
             Text("Clicked $count times")
         }
     }
