@@ -1,4 +1,4 @@
-package com.mauriciotogneri.composetest
+package com.mauriciotogneri.composetest.counter.view
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.mauriciotogneri.composetest.base.BaseView
+import com.mauriciotogneri.composetest.counter.state.CounterState
 import com.mauriciotogneri.composetest.ui.theme.ComposeTestTheme
 
 class CounterView(private val state: CounterState) : BaseView() {
