@@ -1,14 +1,14 @@
 package com.mauriciotogneri.composetest.counter.state
 
+import android.content.Context
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import com.mauriciotogneri.composetest.base.BaseContext
 import com.mauriciotogneri.composetest.base.BaseState
 import com.mauriciotogneri.composetest.counter.model.Counter
 import com.mauriciotogneri.composetest.image.activity.ImageActivity
 
-class CounterState(private val context: BaseContext) : BaseState() {
+class CounterState(private val context: Context) : BaseState() {
     var counter by mutableStateOf(Counter())
 
     fun increaseCounter() {
@@ -16,6 +16,6 @@ class CounterState(private val context: BaseContext) : BaseState() {
     }
 
     fun openNewScreen() {
-        context.openScreen(ImageActivity.def("https://foo.com/image"))
+        context.startActivity(ImageActivity.intent("https://foo.com/image", context))
     }
 }

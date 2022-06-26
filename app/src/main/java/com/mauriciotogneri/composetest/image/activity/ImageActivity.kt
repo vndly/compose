@@ -1,16 +1,24 @@
 package com.mauriciotogneri.composetest.image.activity
 
+import android.content.Context
+import android.content.Intent
 import com.mauriciotogneri.composetest.base.BaseActivity
-import com.mauriciotogneri.composetest.base.ScreenDef
 import com.mauriciotogneri.composetest.counter.state.CounterState
 import com.mauriciotogneri.composetest.counter.view.CounterView
+import com.mauriciotogneri.composetest.image.state.ImageState
+import com.mauriciotogneri.composetest.image.view.ImageView
 
-class ImageActivity : BaseActivity<CounterState, CounterView>() {
+class ImageActivity : BaseActivity<ImageState, ImageView>() {
     companion object {
-        fun def(url: String): ScreenDef<ImageActivity> = ScreenDef(ImageActivity::class.java)
+        fun intent(url: String, context: Context): Intent {
+            val intent = Intent(context, ImageActivity::class.java)
+            intent.putExtra("url", url)
+
+            return intent
+        }
     }
 
-    override fun createState(): CounterState = CounterState(androidContext())
+    override fun createState(): ImageState = ImageState(this)
 
-    override fun createView(): CounterView = CounterView(state)
+    override fun createView(): ImageView = ImageView(state)
 }
