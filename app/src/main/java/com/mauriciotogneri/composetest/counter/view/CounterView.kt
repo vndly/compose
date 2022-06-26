@@ -30,15 +30,25 @@ class CounterView(private val state: CounterState) : BaseView() {
         Column {
             CounterButton(
                 count = state.counter.value,
-                updateCount = { state.increaseCounter() }
+                callback = { state.increaseCounter() }
+            )
+            NewScreenButton(
+                callback = { state.openNewScreen() }
             )
         }
     }
 
     @Composable
-    fun CounterButton(count: Int, updateCount: () -> Unit) {
-        Button(onClick = { updateCount() }) {
+    fun CounterButton(count: Int, callback: () -> Unit) {
+        Button(onClick = { callback() }) {
             Text("Clicked $count times")
+        }
+    }
+
+    @Composable
+    fun NewScreenButton(callback: () -> Unit) {
+        Button(onClick = { callback() }) {
+            Text("Open new screen")
         }
     }
 }
