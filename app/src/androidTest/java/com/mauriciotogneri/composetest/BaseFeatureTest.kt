@@ -6,7 +6,7 @@ import org.junit.Rule
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-abstract class BaseInstrumentedTest(testRule: ComposeContentTestRule) {
+abstract class BaseFeatureTest(testRule: ComposeContentTestRule) {
     @get:Rule
     val rule: ComposeContentTestRule = testRule
 
