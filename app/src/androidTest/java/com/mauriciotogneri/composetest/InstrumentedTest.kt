@@ -12,21 +12,25 @@ import org.junit.runner.RunWith
 class InstrumentedTest : BaseInstrumentedTest(
     createAndroidComposeRule<CounterActivity>()
 ) {
+    init {
+        CounterSteps.rule = rule
+    }
+
     @Test
     fun noClick() = run {
-        `I see the counter as`(rule, 0)
+        `I see the counter as`(0)
     }
 
     @Test
     fun clickOnce() = run {
-        `I click on the counter`(rule)
-        `I see the counter as`(rule, 1)
+        `I click on the counter`()
+        `I see the counter as`( 1)
     }
 
     @Test
     fun clickTwice() = run {
-        `I click on the counter`(rule)
-        `I click on the counter`(rule)
-        `I see the counter as`(rule, 2)
+        `I click on the counter`()
+        `I click on the counter`()
+        `I see the counter as`( 2)
     }
 }

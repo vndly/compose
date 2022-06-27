@@ -6,11 +6,13 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 
 object CounterSteps {
-    fun `I click on the counter`(rule: ComposeContentTestRule) {
+    lateinit var rule: ComposeContentTestRule
+
+    fun `I click on the counter`() {
         rule.onNodeWithTag("counterButton").performClick()
     }
 
-    fun `I see the counter as`(rule: ComposeContentTestRule, times: Int) {
+    fun `I see the counter as`(times: Int) {
         rule.onNodeWithText("Clicked $times times").assertExists()
     }
 }
