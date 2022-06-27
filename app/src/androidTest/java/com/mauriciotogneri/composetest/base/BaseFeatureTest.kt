@@ -1,4 +1,4 @@
-package com.mauriciotogneri.composetest
+package com.mauriciotogneri.composetest.base
 
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.junit4.ComposeContentTestRule

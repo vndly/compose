@@ -1,10 +1,11 @@
-package com.mauriciotogneri.composetest
+package com.mauriciotogneri.composetest.tests
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.mauriciotogneri.composetest.CounterSteps.`I click on the counter`
-import com.mauriciotogneri.composetest.CounterSteps.`I click on the image button`
-import com.mauriciotogneri.composetest.CounterSteps.`I see the counter as`
-import com.mauriciotogneri.composetest.CounterSteps.`I see the image screen`
+import com.mauriciotogneri.composetest.tests.CounterSteps.`I click on the counter`
+import com.mauriciotogneri.composetest.tests.CounterSteps.`I click on the image button`
+import com.mauriciotogneri.composetest.tests.CounterSteps.`I see the counter as`
+import com.mauriciotogneri.composetest.tests.CounterSteps.`I see the image screen`
+import com.mauriciotogneri.composetest.base.BaseFeatureTest
 import com.mauriciotogneri.composetest.counter.activity.CounterActivity
 import org.junit.Test
 import org.junit.runner.RunWith

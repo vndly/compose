@@ -1,9 +1,9 @@
-package com.mauriciotogneri.composetest
+package com.mauriciotogneri.composetest.tests
 
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
-import com.mauriciotogneri.composetest.BaseSteps.rule
+import com.mauriciotogneri.composetest.base.BaseSteps.rule
 
 object CounterSteps {
     fun `I click on the counter`() {
