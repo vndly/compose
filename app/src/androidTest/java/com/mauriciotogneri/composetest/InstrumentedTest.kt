@@ -9,7 +9,9 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class InstrumentedTest : BaseInstrumentedTest(createAndroidComposeRule<CounterActivity>()) {
+class InstrumentedTest : BaseInstrumentedTest(
+    createAndroidComposeRule<CounterActivity>()
+) {
     @Test
     fun noClick() = run {
         `I see the counter as`(rule, 0)
