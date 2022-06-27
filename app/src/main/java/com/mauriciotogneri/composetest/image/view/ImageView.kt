@@ -7,6 +7,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import com.mauriciotogneri.composetest.base.BaseView
 import com.mauriciotogneri.composetest.image.state.ImageState
 import com.mauriciotogneri.composetest.ui.theme.ComposeTestTheme
@@ -16,7 +17,7 @@ class ImageView(private val state: ImageState) : BaseView() {
     override fun Root() {
         ComposeTestTheme {
             Surface(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier.fillMaxSize().testTag("imageScreen"),
                 color = MaterialTheme.colors.background
             ) {
                 Content()

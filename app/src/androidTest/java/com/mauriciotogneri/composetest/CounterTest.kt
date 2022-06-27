@@ -2,7 +2,9 @@ package com.mauriciotogneri.composetest
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.mauriciotogneri.composetest.CounterSteps.`I click on the counter`
+import com.mauriciotogneri.composetest.CounterSteps.`I click on the image button`
 import com.mauriciotogneri.composetest.CounterSteps.`I see the counter as`
+import com.mauriciotogneri.composetest.CounterSteps.`I see the image screen`
 import com.mauriciotogneri.composetest.counter.activity.CounterActivity
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -25,5 +27,11 @@ class CounterTest : BaseFeatureTest(rule<CounterActivity>()) {
         `I click on the counter`()
         `I click on the counter`()
         `I see the counter as`(2)
+    }
+
+    @Test
+    fun openImageScreen() = run {
+        `I click on the image button`()
+        `I see the image screen`()
     }
 }

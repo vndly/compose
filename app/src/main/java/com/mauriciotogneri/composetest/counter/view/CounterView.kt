@@ -54,6 +54,7 @@ class CounterView(private val state: CounterState) : BaseView() {
     @Composable
     fun NewScreenButton(callback: () -> Unit) {
         Button(
+            modifier = Modifier.testTag("imageButton"),
             onClick = { callback() }
         ) {
             Text(stringResource(R.string.image_button))

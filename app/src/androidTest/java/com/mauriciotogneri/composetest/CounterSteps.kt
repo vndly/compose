@@ -13,4 +13,12 @@ object CounterSteps {
     fun `I see the counter as`(times: Int) {
         rule.onNodeWithText("Clicked $times times").assertExists()
     }
+
+    fun `I click on the image button`() {
+        rule.onNodeWithTag("imageButton").performClick()
+    }
+
+    fun `I see the image screen`() {
+        rule.onNodeWithTag("imageScreen").assertExists()
+    }
 }
