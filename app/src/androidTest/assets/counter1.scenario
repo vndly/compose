@@ -1,0 +1,2 @@
+Scenario: I don't click on the button
+    Then I see the counter as 0
