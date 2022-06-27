@@ -12,9 +12,6 @@ class InstrumentedTest : BaseInstrumentedTest<CounterActivity>() {
 
     @Test
     fun test1() {
-        //rule.onNodeWithText("Clicked 0 times").performClick()
-        //rule.onNodeWithText("Clicked 1 times").assertExists()
-
         val counterSteps = CounterSteps(rule)
 
         val steps = {
