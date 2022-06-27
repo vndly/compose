@@ -25,7 +25,6 @@
 
         <activity
             android:name=".image.activity.ImageActivity"
-            android:exported="true"
             android:theme="@style/Theme.ComposeTest" />
 
     </application>
