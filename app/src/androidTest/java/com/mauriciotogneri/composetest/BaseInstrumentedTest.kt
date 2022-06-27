@@ -11,4 +11,6 @@ abstract class BaseInstrumentedTest {
     val rule: ComposeContentTestRule by lazy { rule() }
 
     abstract fun rule(): ComposeContentTestRule
+
+    fun run(steps: () -> Unit) = steps.invoke()
 }

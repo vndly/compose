@@ -13,11 +13,8 @@ class InstrumentedTest : BaseInstrumentedTest() {
     override fun rule() = createAndroidComposeRule<CounterActivity>()
 
     @Test
-    fun test1() {
-        val steps = {
-            `I click on the counter`(rule)
-            `I see the counter as`(rule, 1)
-        }
-        steps.invoke()
+    fun test1() = run {
+        `I click on the counter`(rule)
+        `I see the counter as`(rule, 1)
     }
 }
