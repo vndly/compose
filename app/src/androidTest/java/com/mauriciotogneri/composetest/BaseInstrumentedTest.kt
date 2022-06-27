@@ -13,12 +13,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 abstract class BaseInstrumentedTest<A : ComponentActivity> {
     @get:Rule
-    val compose: AndroidComposeTestRule<ActivityScenarioRule<A>, A> by lazy { rule() }
+    val rule: AndroidComposeTestRule<ActivityScenarioRule<A>, A> by lazy { rule() }
 
     abstract fun rule() : AndroidComposeTestRule<ActivityScenarioRule<A>, A>
-
-    abstract fun execute()
-
-    @Test
-    fun runTests() = execute()
 }
