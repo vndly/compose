@@ -8,6 +8,8 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.mauriciotogneri.composetest.R
 import com.mauriciotogneri.composetest.base.BaseView
 import com.mauriciotogneri.composetest.counter.state.CounterState
 import com.mauriciotogneri.composetest.ui.theme.ComposeTestTheme
@@ -40,15 +42,17 @@ class CounterView(private val state: CounterState) : BaseView() {
 
     @Composable
     fun CounterButton(count: Int, callback: () -> Unit) {
-        Button(onClick = { callback() }) {
-            Text("Clicked $count times")
+        Button(
+            onClick = { callback() }) {
+            Text(stringResource(R.string.counter_button, count))
         }
     }
 
     @Composable
     fun NewScreenButton(callback: () -> Unit) {
-        Button(onClick = { callback() }) {
-            Text("Open new screen")
+        Button(
+            onClick = { callback() }) {
+            Text(stringResource(R.string.image_button))
         }
     }
 }

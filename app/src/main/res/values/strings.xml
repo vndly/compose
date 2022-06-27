@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Compose Test</string>
+    <string name="counter_button">Clicked %d times</string>
+    <string name="image_button">Open new screen</string>
 </resources>
