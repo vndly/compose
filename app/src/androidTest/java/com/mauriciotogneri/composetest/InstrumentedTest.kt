@@ -12,10 +12,6 @@ import org.junit.runner.RunWith
 class InstrumentedTest : BaseInstrumentedTest(
     createAndroidComposeRule<CounterActivity>()
 ) {
-    init {
-        CounterSteps.rule = rule
-    }
-
     @Test
     fun noClick() = run {
         `I see the counter as`(0)

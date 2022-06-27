@@ -1,13 +1,11 @@
 package com.mauriciotogneri.composetest
 
-import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import com.mauriciotogneri.composetest.BaseSteps.rule
 
 object CounterSteps {
-    lateinit var rule: ComposeContentTestRule
-
     fun `I click on the counter`() {
         rule.onNodeWithTag("counterButton").performClick()
     }

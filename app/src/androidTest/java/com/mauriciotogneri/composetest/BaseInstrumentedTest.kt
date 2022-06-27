@@ -10,5 +10,9 @@ abstract class BaseInstrumentedTest(testRule: ComposeContentTestRule) {
     @get:Rule
     val rule: ComposeContentTestRule = testRule
 
+    init {
+        BaseSteps.rule = rule
+    }
+
     fun run(steps: () -> Unit) = steps.invoke()
 }
