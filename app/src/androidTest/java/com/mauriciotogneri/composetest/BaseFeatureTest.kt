@@ -1,6 +1,8 @@
 package com.mauriciotogneri.composetest
 
+import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Rule
 import org.junit.runner.RunWith
@@ -15,4 +17,9 @@ abstract class BaseFeatureTest(testRule: ComposeContentTestRule) {
     }
 
     fun run(steps: () -> Unit) = steps.invoke()
+
+    companion object {
+        inline fun <reified A : ComponentActivity> rule(): ComposeContentTestRule =
+            createAndroidComposeRule<A>()
+    }
 }
