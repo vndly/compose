@@ -24,13 +24,13 @@ class InstrumentedTest : BaseInstrumentedTest(
     @Test
     fun clickOnce() = run {
         `I click on the counter`()
-        `I see the counter as`( 1)
+        `I see the counter as`(1)
     }
 
     @Test
     fun clickTwice() = run {
         `I click on the counter`()
         `I click on the counter`()
-        `I see the counter as`( 2)
+        `I see the counter as`(2)
     }
 }
