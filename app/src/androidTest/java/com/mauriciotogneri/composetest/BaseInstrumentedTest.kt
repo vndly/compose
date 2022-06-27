@@ -1,19 +1,14 @@
 package com.mauriciotogneri.composetest
 
-import androidx.activity.ComponentActivity
-import androidx.compose.ui.test.junit4.AndroidComposeTestRule
-import androidx.compose.ui.test.onNodeWithText
-import androidx.compose.ui.test.performClick
-import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Rule
-import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-abstract class BaseInstrumentedTest<A : ComponentActivity> {
+abstract class BaseInstrumentedTest {
     @get:Rule
-    val rule: AndroidComposeTestRule<ActivityScenarioRule<A>, A> by lazy { rule() }
+    val rule: ComposeContentTestRule by lazy { rule() }
 
-    abstract fun rule() : AndroidComposeTestRule<ActivityScenarioRule<A>, A>
+    abstract fun rule(): ComposeContentTestRule
 }
