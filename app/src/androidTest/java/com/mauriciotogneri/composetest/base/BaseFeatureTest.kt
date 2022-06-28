@@ -8,21 +8,15 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Before
 import org.junit.Rule
 import org.junit.runner.RunWith
-import java.util.*
 
 typealias GenericTestRule = AndroidComposeTestRule<ActivityScenarioRule<ComponentActivity>, ComponentActivity>
 
 @RunWith(AndroidJUnit4::class)
 abstract class BaseFeatureTest<A : ComponentActivity>(
-    testRule: AndroidComposeTestRule<ActivityScenarioRule<A>, A>,
-    locale: Locale
+    testRule: AndroidComposeTestRule<ActivityScenarioRule<A>, A>
 ) {
     @get:Rule
     val rule: AndroidComposeTestRule<ActivityScenarioRule<A>, A> = testRule
-
-    @get:Rule
-    @Suppress("UNCHECKED_CAST")
-    val localeTestRule = ForceLocaleRule(locale)
 
     fun run(steps: () -> Unit) = steps.invoke()
 

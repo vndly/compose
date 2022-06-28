@@ -1,21 +1,18 @@
 package com.mauriciotogneri.composetest.tests
 
 import com.mauriciotogneri.composetest.base.BaseFeatureTest
-import com.mauriciotogneri.composetest.base.ForceLocaleRule
 import com.mauriciotogneri.composetest.counter.activity.CounterActivity
 import com.mauriciotogneri.composetest.tests.CounterSteps.`I click on the counter`
 import com.mauriciotogneri.composetest.tests.CounterSteps.`I click on the image button`
 import com.mauriciotogneri.composetest.tests.CounterSteps.`I see the counter as`
 import com.mauriciotogneri.composetest.tests.CounterSteps.`I see the image screen`
-import org.junit.ClassRule
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 import java.util.*
 
 @RunWith(Parameterized::class)
-class CounterTest(locale: Locale) : BaseFeatureTest<CounterActivity>(rule(), locale) {
+class CounterTest(locale: Locale) : BaseFeatureTest<CounterActivity>(rule()) {
     companion object {
         @Parameterized.Parameters
         @JvmStatic
