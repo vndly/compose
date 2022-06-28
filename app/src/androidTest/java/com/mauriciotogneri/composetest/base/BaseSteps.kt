@@ -4,6 +4,7 @@ import androidx.annotation.StringRes
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.key.KeyEvent
 import androidx.compose.ui.semantics.AccessibilityAction
+import androidx.compose.ui.semantics.ProgressBarRangeInfo
 import androidx.compose.ui.semantics.SemanticsPropertyKey
 import androidx.compose.ui.test.*
 import com.mauriciotogneri.composetest.base.BaseFeatureTest.Companion.rule
@@ -166,4 +167,59 @@ open class BaseSteps {
 
     fun SemanticsNodeInteraction.exists(errorMessageOnFail: String? = null) =
         assertExists(errorMessageOnFail)
+
+    fun SemanticsNodeInteraction.doesNotExist() = assertDoesNotExist()
+
+    fun SemanticsNodeInteraction.contentDescriptionContains(
+        value: String,
+        substring: Boolean = false,
+        ignoreCase: Boolean = false
+    ) = assertContentDescriptionContains(value, substring, ignoreCase)
+
+    fun SemanticsNodeInteraction.contentDescriptionContains(
+        value: String,
+    ) = assertContentDescriptionEquals(value)
+
+    fun SemanticsNodeInteraction.isDisplayed() = assertIsDisplayed()
+
+    fun SemanticsNodeInteraction.isNotDisplayed() = assertIsNotDisplayed()
+
+    fun SemanticsNodeInteraction.isEnabled() = assertIsEnabled()
+
+    fun SemanticsNodeInteraction.isNotEnabled() = assertIsNotEnabled()
+
+    fun SemanticsNodeInteraction.isSelected() = assertIsSelected()
+
+    fun SemanticsNodeInteraction.isNotSelected() = assertIsNotSelected()
+
+    fun SemanticsNodeInteraction.isFocused() = assertIsFocused()
+
+    fun SemanticsNodeInteraction.isNotFocused() = assertIsNotFocused()
+
+    fun SemanticsNodeInteraction.isOn() = assertIsOn()
+
+    fun SemanticsNodeInteraction.isOff() = assertIsOff()
+
+    fun SemanticsNodeInteraction.isToggleable() = assertIsToggleable()
+
+    fun SemanticsNodeInteraction.isSelectable() = assertIsSelectable()
+
+    fun SemanticsNodeInteraction.textEquals(
+        vararg values: String,
+        includeEditableText: Boolean = true
+    ) = assertTextEquals(*values, includeEditableText = includeEditableText)
+
+    fun SemanticsNodeInteraction.textContains(
+        value: String,
+        substring: Boolean = false,
+        ignoreCase: Boolean = false
+    ) = assertTextContains(value, substring, ignoreCase)
+
+    fun SemanticsNodeInteraction.valueEquals(value: String) = assertValueEquals(value)
+
+    fun SemanticsNodeInteraction.rangeInfoEquals(value: ProgressBarRangeInfo) = assertRangeInfoEquals(value)
+
+    fun SemanticsNodeInteraction.hasClickAction() = assertHasClickAction()
+
+    fun SemanticsNodeInteraction.hasNoClickAction() = assertHasNoClickAction()
 }
