@@ -15,7 +15,7 @@ typealias GenericTestRule = AndroidComposeTestRule<ActivityScenarioRule<Componen
 @RunWith(AndroidJUnit4::class)
 abstract class BaseFeatureTest<A : ComponentActivity>(
     testRule: AndroidComposeTestRule<ActivityScenarioRule<A>, A>,
-    private val scenario: TestScenario
+    private val scenario: Scenario
 ) {
     @get:Rule
     val rule: AndroidComposeTestRule<ActivityScenarioRule<A>, A> = testRule
