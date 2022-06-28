@@ -1,20 +1,27 @@
 package com.mauriciotogneri.composetest.base
 
 import androidx.annotation.StringRes
-import androidx.compose.ui.test.SemanticsNodeInteraction
-import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.onNodeWithText
-import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.*
 import com.mauriciotogneri.composetest.base.BaseFeatureTest.Companion.rule
 
 open class BaseSteps {
-    fun string(@StringRes id: Int, vararg formatArgs: Any): String =
+    fun string(@StringRes id: Int, vararg formatArgs: Any) =
         rule.activity.getString(id, *formatArgs)
+
+    fun root(useUnmergedTree: Boolean = false) = rule.onRoot(useUnmergedTree)
+
+    fun node(
+        matcher: SemanticsMatcher,
+        useUnmergedTree: Boolean
+    ) = rule.onNode(
+        matcher,
+        useUnmergedTree,
+    )
 
     fun withTag(
         testTag: String,
         useUnmergedTree: Boolean = false
-    ): SemanticsNodeInteraction = rule.onNodeWithTag(
+    ) = rule.onNodeWithTag(
         testTag,
         useUnmergedTree,
     )
@@ -24,8 +31,60 @@ open class BaseSteps {
         substring: Boolean = false,
         ignoreCase: Boolean = false,
         useUnmergedTree: Boolean = false
-    ): SemanticsNodeInteraction = rule.onNodeWithText(
+    ) = rule.onNodeWithText(
         text,
+        substring,
+        ignoreCase,
+        useUnmergedTree,
+    )
+
+    fun withDescription(
+        label: String,
+        substring: Boolean = false,
+        ignoreCase: Boolean = false,
+        useUnmergedTree: Boolean = false
+    ) = rule.onNodeWithContentDescription(
+        label,
+        substring,
+        ignoreCase,
+        useUnmergedTree,
+    )
+
+    fun allNodes(
+        matcher: SemanticsMatcher,
+        useUnmergedTree: Boolean
+    ) = rule.onAllNodes(
+        matcher,
+        useUnmergedTree,
+    )
+
+    fun nodesWithTag(
+        testTag: String,
+        useUnmergedTree: Boolean = false
+    ) = rule.onAllNodesWithTag(
+        testTag,
+        useUnmergedTree,
+    )
+
+    fun nodesWithText(
+        text: String,
+        substring: Boolean = false,
+        ignoreCase: Boolean = false,
+        useUnmergedTree: Boolean = false
+    ) = rule.onAllNodesWithText(
+        text,
+        substring,
+        ignoreCase,
+        useUnmergedTree,
+    )
+
+    fun nodesWithDescription(
+        label: String,
+        substring: Boolean = false,
+        ignoreCase: Boolean = false,
+        useUnmergedTree: Boolean = false
+    ) = rule.onAllNodesWithContentDescription(
+        label,
         substring,
         ignoreCase,
         useUnmergedTree,
