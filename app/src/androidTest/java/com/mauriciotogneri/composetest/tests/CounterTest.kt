@@ -1,6 +1,5 @@
 package com.mauriciotogneri.composetest.tests
 
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.mauriciotogneri.composetest.base.BaseFeatureTest
 import com.mauriciotogneri.composetest.counter.activity.CounterActivity
 import com.mauriciotogneri.composetest.tests.CounterSteps.`I click on the counter`
@@ -9,9 +8,19 @@ import com.mauriciotogneri.composetest.tests.CounterSteps.`I see the counter as`
 import com.mauriciotogneri.composetest.tests.CounterSteps.`I see the image screen`
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.junit.runners.Parameterized
+import java.util.*
 
-@RunWith(AndroidJUnit4::class)
-class CounterTest : BaseFeatureTest<CounterActivity>(rule()) {
+@RunWith(Parameterized::class)
+class CounterTest(locale: Locale) : BaseFeatureTest<CounterActivity>(rule(), locale) {
+    companion object {
+        @Parameterized.Parameters
+        @JvmStatic
+        fun locales(): Iterable<Locale> {
+            return listOf(Locale("es", "ES"))
+        }
+    }
+
     @Test
     fun noClick() = run {
         `I see the counter as`(0)

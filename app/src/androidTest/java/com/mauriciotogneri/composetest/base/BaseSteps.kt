@@ -1,5 +1,7 @@
 package com.mauriciotogneri.composetest.base
 
+import android.app.Instrumentation
+import android.os.Environment
 import androidx.annotation.StringRes
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.key.KeyEvent
@@ -8,11 +10,30 @@ import androidx.compose.ui.semantics.ProgressBarRangeInfo
 import androidx.compose.ui.semantics.SemanticsPropertyKey
 import androidx.compose.ui.test.*
 import androidx.compose.ui.unit.Dp
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
 import com.mauriciotogneri.composetest.base.BaseFeatureTest.Companion.rule
+import java.io.File
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 open class BaseSteps {
     fun string(@StringRes id: Int, vararg formatArgs: Any) =
         rule.activity.getString(id, *formatArgs)
+
+    fun screenshot(): Boolean {
+        val formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH.mm.ss.SSS")
+        val date = LocalDateTime.now()
+        val name = formatter.format(date) + "aaa.png"
+
+        val file = File(
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
+            name
+        )
+        val instrumentation: Instrumentation = InstrumentationRegistry.getInstrumentation()
+
+        return UiDevice.getInstance(instrumentation).takeScreenshot(file)
+    }
 
     // ============================== finders ============================== \\
 
@@ -218,17 +239,22 @@ open class BaseSteps {
 
     fun SemanticsNodeInteraction.valueEquals(value: String) = assertValueEquals(value)
 
-    fun SemanticsNodeInteraction.rangeInfoEquals(value: ProgressBarRangeInfo) = assertRangeInfoEquals(value)
+    fun SemanticsNodeInteraction.rangeInfoEquals(value: ProgressBarRangeInfo) =
+        assertRangeInfoEquals(value)
 
     fun SemanticsNodeInteraction.hasClickAction() = assertHasClickAction()
 
     fun SemanticsNodeInteraction.hasNoClickAction() = assertHasNoClickAction()
 
-    fun SemanticsNodeInteraction.widthIsEqualTo(expectedWidth: Dp) = assertWidthIsEqualTo(expectedWidth)
+    fun SemanticsNodeInteraction.widthIsEqualTo(expectedWidth: Dp) =
+        assertWidthIsEqualTo(expectedWidth)
 
-    fun SemanticsNodeInteraction.heightIsEqualTo(expectedHeight: Dp) = assertHeightIsEqualTo(expectedHeight)
+    fun SemanticsNodeInteraction.heightIsEqualTo(expectedHeight: Dp) =
+        assertHeightIsEqualTo(expectedHeight)
 
-    fun SemanticsNodeInteraction.widthIsAtLeast(expectedMinWidth: Dp) = assertWidthIsAtLeast(expectedMinWidth)
+    fun SemanticsNodeInteraction.widthIsAtLeast(expectedMinWidth: Dp) =
+        assertWidthIsAtLeast(expectedMinWidth)
 
-    fun SemanticsNodeInteraction.heightIsAtLeast(expectedMinHeight: Dp) = assertHeightIsAtLeast(expectedMinHeight)
+    fun SemanticsNodeInteraction.heightIsAtLeast(expectedMinHeight: Dp) =
+        assertHeightIsAtLeast(expectedMinHeight)
 }

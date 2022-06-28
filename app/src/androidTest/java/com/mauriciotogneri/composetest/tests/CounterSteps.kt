@@ -17,6 +17,7 @@ object CounterSteps : BaseSteps() {
     }
 
     fun `I see the image screen`() {
+        screenshot()
         withTag("imageScreen").exists()
     }
 }
