@@ -8,25 +8,24 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Rule
 import org.junit.runner.RunWith
 
+typealias GenericTestRule = AndroidComposeTestRule<ActivityScenarioRule<ComponentActivity>, ComponentActivity>
+
 @RunWith(AndroidJUnit4::class)
 abstract class BaseFeatureTest<A : ComponentActivity>(testRule: AndroidComposeTestRule<ActivityScenarioRule<A>, A>) {
     @get:Rule
     var rule: AndroidComposeTestRule<ActivityScenarioRule<A>, A> = testRule
 
     init {
-        currentRule = rule
+        @Suppress("UNCHECKED_CAST")
+        Companion.rule = rule as GenericTestRule
     }
 
     fun run(steps: () -> Unit) = steps.invoke()
 
-    companion object {
-        lateinit var currentRule: Any
+    companion object Companion {
+        lateinit var rule: GenericTestRule
 
-        @Suppress("UNCHECKED_CAST")
-        fun rule() =
-            currentRule as AndroidComposeTestRule<ActivityScenarioRule<ComponentActivity>, ComponentActivity>
-
-        inline fun <reified A : ComponentActivity> createRule(): AndroidComposeTestRule<ActivityScenarioRule<A>, A> =
+        inline fun <reified A : ComponentActivity> rule(): AndroidComposeTestRule<ActivityScenarioRule<A>, A> =
             createAndroidComposeRule()
     }
 }
