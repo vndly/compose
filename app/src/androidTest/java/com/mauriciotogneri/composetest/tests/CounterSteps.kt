@@ -1,5 +1,6 @@
 package com.mauriciotogneri.composetest.tests
 
+import com.mauriciotogneri.composetest.R
 import com.mauriciotogneri.composetest.base.BaseSteps
 
 object CounterSteps : BaseSteps() {
@@ -8,7 +9,7 @@ object CounterSteps : BaseSteps() {
     }
 
     fun `I see the counter as`(times: Int) {
-        withText("Clicked $times times").exists()
+        withText(string(R.string.counter_button, times)).exists()
     }
 
     fun `I click on the image button`() {

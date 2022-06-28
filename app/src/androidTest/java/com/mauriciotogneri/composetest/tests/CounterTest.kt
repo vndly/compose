@@ -6,12 +6,13 @@ import com.mauriciotogneri.composetest.tests.CounterSteps.`I click on the image 
 import com.mauriciotogneri.composetest.tests.CounterSteps.`I see the counter as`
 import com.mauriciotogneri.composetest.tests.CounterSteps.`I see the image screen`
 import com.mauriciotogneri.composetest.base.BaseFeatureTest
+import com.mauriciotogneri.composetest.base.BaseFeatureTest.Companion.rule
 import com.mauriciotogneri.composetest.counter.activity.CounterActivity
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class CounterTest : BaseFeatureTest(rule<CounterActivity>()) {
+class CounterTest : BaseFeatureTest<CounterActivity>(rule()) {
     @Test
     fun noClick() = run {
         `I see the counter as`(0)
