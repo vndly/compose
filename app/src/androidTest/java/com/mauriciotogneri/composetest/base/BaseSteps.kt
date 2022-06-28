@@ -1,6 +1,7 @@
 package com.mauriciotogneri.composetest.base
 
 import androidx.annotation.StringRes
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.key.KeyEvent
 import androidx.compose.ui.semantics.AccessibilityAction
 import androidx.compose.ui.semantics.SemanticsPropertyKey
@@ -98,6 +99,44 @@ open class BaseSteps {
     // ============================== actions ============================== \\
 
     fun SemanticsNodeInteraction.click() = performClick()
+
+    fun SemanticsNodeInteraction.doubleClick() = performTouchInput { doubleClick() }
+
+    fun SemanticsNodeInteraction.longClick() = performTouchInput { longClick() }
+
+    fun SemanticsNodeInteraction.pinch(
+        start0: Offset,
+        end0: Offset,
+        start1: Offset,
+        end1: Offset,
+        durationMillis: Long = 400
+    ) = performTouchInput { pinch(start0, end0, start1, end1, durationMillis) }
+
+    fun SemanticsNodeInteraction.swipe(
+        start: Offset,
+        end: Offset,
+        durationMillis: Long = 200
+    ) = performTouchInput { swipe(start, end, durationMillis) }
+
+    fun SemanticsNodeInteraction.swipeUp() = performTouchInput { swipeUp() }
+
+    fun SemanticsNodeInteraction.swipeDown() = performTouchInput { swipeDown() }
+
+    fun SemanticsNodeInteraction.swipeLeft() = performTouchInput { swipeLeft() }
+
+    fun SemanticsNodeInteraction.swipeRight() = performTouchInput { swipeRight() }
+
+    fun SemanticsNodeInteraction.up(pointerId: Int = 0) = performTouchInput { up(pointerId) }
+
+    fun SemanticsNodeInteraction.down(position: Offset) = performTouchInput { down(position) }
+
+    fun SemanticsNodeInteraction.cancel() = performTouchInput { cancel() }
+
+    fun SemanticsNodeInteraction.move() = performTouchInput { move() }
+
+    fun SemanticsNodeInteraction.moveTo(position: Offset) = performTouchInput { moveTo(position) }
+
+    fun SemanticsNodeInteraction.moveBy(delta: Offset) = performTouchInput { moveBy(delta) }
 
     fun SemanticsNodeInteraction.touch(
         block: TouchInjectionScope.() -> Unit
