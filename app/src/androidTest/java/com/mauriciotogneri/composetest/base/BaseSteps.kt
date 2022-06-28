@@ -1,12 +1,17 @@
 package com.mauriciotogneri.composetest.base
 
 import androidx.annotation.StringRes
+import androidx.compose.ui.input.key.KeyEvent
+import androidx.compose.ui.semantics.AccessibilityAction
+import androidx.compose.ui.semantics.SemanticsPropertyKey
 import androidx.compose.ui.test.*
 import com.mauriciotogneri.composetest.base.BaseFeatureTest.Companion.rule
 
 open class BaseSteps {
     fun string(@StringRes id: Int, vararg formatArgs: Any) =
         rule.activity.getString(id, *formatArgs)
+
+    // ============================== finders ============================== \\
 
     fun root(useUnmergedTree: Boolean = false) = rule.onRoot(useUnmergedTree)
 
@@ -90,8 +95,36 @@ open class BaseSteps {
         useUnmergedTree,
     )
 
-    fun SemanticsNodeInteraction.exists(errorMessageOnFail: String? = null) =
-        assertExists(errorMessageOnFail)
+    // ============================== actions ============================== \\
 
     fun SemanticsNodeInteraction.click() = performClick()
+
+    fun SemanticsNodeInteraction.touch(
+        block: TouchInjectionScope.() -> Unit
+    ) = performTouchInput(block)
+
+    fun SemanticsNodeInteraction.multiModal(
+        block: MultiModalInjectionScope.() -> Unit
+    ) = performMultiModalInput(block)
+
+    fun SemanticsNodeInteraction.scrollTo() = performScrollTo()
+
+    fun SemanticsNodeInteraction.semanticsAction(
+        key: SemanticsPropertyKey<AccessibilityAction<() -> Boolean>>
+    ) = performSemanticsAction(key)
+
+    fun SemanticsNodeInteraction.keyPress(keyEvent: KeyEvent) = performKeyPress(keyEvent)
+
+    fun SemanticsNodeInteraction.imeAction() = performImeAction()
+
+    fun SemanticsNodeInteraction.textClearance() = performTextClearance()
+
+    fun SemanticsNodeInteraction.textInput(text: String) = performTextInput(text)
+
+    fun SemanticsNodeInteraction.textReplacement(text: String) = performTextReplacement(text)
+
+    // ============================= assertions ============================ \\
+
+    fun SemanticsNodeInteraction.exists(errorMessageOnFail: String? = null) =
+        assertExists(errorMessageOnFail)
 }
