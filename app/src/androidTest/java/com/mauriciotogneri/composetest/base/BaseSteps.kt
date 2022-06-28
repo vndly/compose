@@ -7,6 +7,7 @@ import androidx.compose.ui.semantics.AccessibilityAction
 import androidx.compose.ui.semantics.ProgressBarRangeInfo
 import androidx.compose.ui.semantics.SemanticsPropertyKey
 import androidx.compose.ui.test.*
+import androidx.compose.ui.unit.Dp
 import com.mauriciotogneri.composetest.base.BaseFeatureTest.Companion.rule
 
 open class BaseSteps {
@@ -222,4 +223,12 @@ open class BaseSteps {
     fun SemanticsNodeInteraction.hasClickAction() = assertHasClickAction()
 
     fun SemanticsNodeInteraction.hasNoClickAction() = assertHasNoClickAction()
+
+    fun SemanticsNodeInteraction.widthIsEqualTo(expectedWidth: Dp) = assertWidthIsEqualTo(expectedWidth)
+
+    fun SemanticsNodeInteraction.heightIsEqualTo(expectedHeight: Dp) = assertHeightIsEqualTo(expectedHeight)
+
+    fun SemanticsNodeInteraction.widthIsAtLeast(expectedMinWidth: Dp) = assertWidthIsAtLeast(expectedMinWidth)
+
+    fun SemanticsNodeInteraction.heightIsAtLeast(expectedMinHeight: Dp) = assertHeightIsAtLeast(expectedMinHeight)
 }
