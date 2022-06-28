@@ -21,18 +21,21 @@ open class BaseSteps {
     fun string(@StringRes id: Int, vararg formatArgs: Any) =
         rule.activity.getString(id, *formatArgs)
 
-    fun screenshot(): Boolean {
-        val formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH.mm.ss.SSS")
-        val date = LocalDateTime.now()
-        val name = formatter.format(date) + "aaa.png"
-
+    fun screenshot(fileName: String = screenshotName()): Boolean {
         val file = File(
             Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),
-            name
+            fileName
         )
         val instrumentation: Instrumentation = InstrumentationRegistry.getInstrumentation()
 
         return UiDevice.getInstance(instrumentation).takeScreenshot(file)
+    }
+
+    private fun screenshotName(): String {
+        val formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH.mm.ss.SSS")
+        val date = LocalDateTime.now()
+
+        return formatter.format(date) + ".png"
     }
 
     // ============================== finders ============================== \\
