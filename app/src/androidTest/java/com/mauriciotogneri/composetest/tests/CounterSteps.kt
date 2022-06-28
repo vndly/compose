@@ -1,24 +1,22 @@
 package com.mauriciotogneri.composetest.tests
 
-import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
-import com.mauriciotogneri.composetest.base.BaseSteps.rule
+import com.mauriciotogneri.composetest.base.BaseSteps
 
-object CounterSteps {
+object CounterSteps : BaseSteps() {
     fun `I click on the counter`() {
-        rule.onNodeWithTag("counterButton").performClick()
+        withTag("counterButton").performClick()
     }
 
     fun `I see the counter as`(times: Int) {
-        rule.onNodeWithText("Clicked $times times").assertExists()
+        withText("Clicked $times times").assertExists()
     }
 
     fun `I click on the image button`() {
-        rule.onNodeWithTag("imageButton").performClick()
+        withTag("imageButton").performClick()
     }
 
     fun `I see the image screen`() {
-        rule.onNodeWithTag("imageScreen").assertExists()
+        withTag("imageScreen").assertExists()
     }
 }

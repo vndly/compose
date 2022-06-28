@@ -13,12 +13,14 @@ abstract class BaseFeatureTest(testRule: ComposeContentTestRule) {
     val rule: ComposeContentTestRule = testRule
 
     init {
-        BaseSteps.rule = rule
+        BaseFeatureTest.rule = rule
     }
 
     fun run(steps: () -> Unit) = steps.invoke()
 
     companion object {
+        lateinit var rule: ComposeContentTestRule
+
         inline fun <reified A : ComponentActivity> rule(): ComposeContentTestRule =
             createAndroidComposeRule<A>()
     }
