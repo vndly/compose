@@ -1,8 +1,6 @@
 package com.mauriciotogneri.composetest.base
 
-import androidx.compose.ui.test.SemanticsNodeInteraction
-import androidx.compose.ui.test.onNodeWithTag
-import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.*
 import com.mauriciotogneri.composetest.base.BaseFeatureTest.Companion.rule
 
 open class BaseSteps {
@@ -25,4 +23,8 @@ open class BaseSteps {
         ignoreCase,
         useUnmergedTree,
     )
+
+    fun SemanticsNodeInteraction.exists(errorMessageOnFail: String? = null) = assertExists(errorMessageOnFail)
+
+    fun SemanticsNodeInteraction.click() = performClick()
 }
