@@ -1,3 +1,3 @@
 package com.mauriciotogneri.composetest.base
 
-data class Scenario(val steps: () -> Unit)
+data class TestScenario(val steps: () -> Unit)
