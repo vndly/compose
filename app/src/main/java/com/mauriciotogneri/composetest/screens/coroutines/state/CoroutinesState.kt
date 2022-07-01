@@ -55,11 +55,9 @@ class CoroutinesState : BaseState() {
     }
 
     private suspend fun greetings(): String {
-        return withContext(Dispatchers.IO) {
-            delay(2000L)
+        delay(2000L)
 
-            "Hello, world!"
-        }
+        return "Hello, world!"
     }
 
     private suspend fun stallForTime() {
