@@ -7,7 +7,7 @@ import com.mauriciotogneri.composetest.counter.view.CounterView
 import com.mauriciotogneri.composetest.image.activity.ImageActivity
 
 class CounterActivity : BaseActivity<CounterState, CounterView>(), CounterStateCallback {
-    override fun stateClass() = CounterState::class
+    override fun createState() = CounterState.create(this, this)
 
     override fun createView() = CounterView(state)
 
