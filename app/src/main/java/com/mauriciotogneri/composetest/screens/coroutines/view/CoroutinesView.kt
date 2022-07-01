@@ -27,16 +27,27 @@ class CoroutinesView(private val state: CoroutinesState) : BaseView() {
     @Composable
     fun Content() {
         Column {
-            Test1Button(callback = { state.test1() })
+            TestButton(
+                textResId = R.string.coroutines_button_test1,
+                callback = { state.test1() }
+            )
+            TestButton(
+                textResId = R.string.coroutines_button_test2,
+                callback = { state.test2() }
+            )
+            TestButton(
+                textResId = R.string.coroutines_button_test3,
+                callback = { state.test3() }
+            )
         }
     }
 
     @Composable
-    fun Test1Button(callback: () -> Unit) {
+    fun TestButton(textResId: Int, callback: () -> Unit) {
         Button(
             onClick = { callback() }
         ) {
-            Text(stringResource(R.string.coroutines_button_test1))
+            Text(stringResource(textResId))
         }
     }
 }
