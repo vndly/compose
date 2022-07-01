@@ -11,14 +11,12 @@ class CounterActivity : BaseActivity<CounterState, CounterView>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        state.onOpenScreen.observe(this) { url ->
-            startActivity(ImageActivity.intent(url, this))
-        }
+        state.onOpenScreen.observe(this, ::onOpenNewScreen)
     }
 
     override fun createState() = CounterStateFactory(this).get()
 
     override fun createView() = CounterView(state)
 
-    fun onOpenNewScreen(url: String) = startActivity(ImageActivity.intent(url, this))
+    private fun onOpenNewScreen(url: String) = startActivity(ImageActivity.intent(url, this))
 }

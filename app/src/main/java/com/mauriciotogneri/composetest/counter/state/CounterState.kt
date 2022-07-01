@@ -7,7 +7,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.mauriciotogneri.composetest.base.BaseState
-import com.mauriciotogneri.composetest.base.Event
 import com.mauriciotogneri.composetest.counter.model.Counter
 
 class CounterState : BaseState() {
