@@ -17,19 +17,16 @@ class CounterState(private val callback: CounterStateCallback) : BaseState() {
     }
 
     fun openNewScreen() = callback.onOpenNewScreen("https://foo.com/image")
-
-    companion object {
-        fun create(lifecycle: ViewModelStoreOwner, callback: CounterStateCallback) =
-            ViewModelProvider(
-                lifecycle,
-                CounterStateFactory(callback)
-            ).get(CounterState::class.java)
-    }
 }
 
-class CounterStateFactory(private val callback: CounterStateCallback) : ViewModelProvider.Factory {
+class CounterStateFactory(
+    private val lifecycle: ViewModelStoreOwner,
+    private val callback: CounterStateCallback,
+) : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T = CounterState(callback) as T
+
+    fun get() = ViewModelProvider(lifecycle, this).get(CounterState::class.java)
 }
 
 interface CounterStateCallback {
