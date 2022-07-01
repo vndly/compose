@@ -22,4 +22,11 @@ abstract class BaseActivity<S, V> : ComponentActivity() where S : BaseState, V :
             view.Root()
         }
     }
+
+    override fun onDestroy() {
+        view.onDestroy()
+        state.onDestroy()
+
+        super.onDestroy()
+    }
 }

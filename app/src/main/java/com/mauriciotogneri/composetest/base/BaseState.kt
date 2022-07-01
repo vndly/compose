@@ -1,3 +1,5 @@
 package com.mauriciotogneri.composetest.base
 
-open class BaseState
+open class BaseState {
+    fun onDestroy() {}
+}
