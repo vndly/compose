@@ -70,7 +70,7 @@ class CounterView(private val state: CounterState) : BaseView() {
             modifier = Modifier.testTag("imageButton"),
             onClick = { callback() }
         ) {
-            Text(stringResource(R.string.counter_button_imageScreen))
+            Text(stringResource(R.string.counter_button_coroutinesScreen))
         }
     }
 }
