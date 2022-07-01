@@ -12,7 +12,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".counter.activity.CounterActivity"
+            android:name="com.mauriciotogneri.composetest.screens.counter.activity.CounterActivity"
             android:exported="true"
             android:theme="@style/Theme.ComposeTest">
 
@@ -24,7 +24,11 @@
         </activity>
 
         <activity
-            android:name=".image.activity.ImageActivity"
+            android:name="com.mauriciotogneri.composetest.screens.image.activity.ImageActivity"
+            android:theme="@style/Theme.ComposeTest" />
+
+        <activity
+            android:name="com.mauriciotogneri.composetest.screens.coroutines.activity.CoroutinesActivity"
             android:theme="@style/Theme.ComposeTest" />
 
     </application>

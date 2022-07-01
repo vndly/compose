@@ -1,23 +1,22 @@
-package com.mauriciotogneri.composetest.image.view
+package com.mauriciotogneri.composetest.screens.coroutines.view
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
+import com.mauriciotogneri.composetest.R
 import com.mauriciotogneri.composetest.base.BaseView
-import com.mauriciotogneri.composetest.image.state.ImageState
+import com.mauriciotogneri.composetest.screens.coroutines.state.CoroutinesState
 import com.mauriciotogneri.composetest.ui.theme.ComposeTestTheme
 
-class ImageView(private val state: ImageState) : BaseView() {
+class CoroutinesView(private val state: CoroutinesState) : BaseView() {
     @Composable
     override fun Root() {
         ComposeTestTheme {
             Surface(
-                modifier = Modifier.fillMaxSize().testTag("imageScreen"),
                 color = MaterialTheme.colors.background
             ) {
                 Content()
@@ -28,8 +27,16 @@ class ImageView(private val state: ImageState) : BaseView() {
     @Composable
     fun Content() {
         Column {
-            Text(text = state.url)
+            Test1Button(callback = { state.test1() })
         }
     }
 
+    @Composable
+    fun Test1Button(callback: () -> Unit) {
+        Button(
+            onClick = { callback() }
+        ) {
+            Text(stringResource(R.string.coroutines_button_test1))
+        }
+    }
 }

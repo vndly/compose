@@ -9,7 +9,7 @@ object CounterSteps : BaseSteps() {
     }
 
     fun `I see the counter as`(times: Int) {
-        withText(string(R.string.counter_button, times)).exists()
+        withText(string(R.string.`counter.button.increase`, times)).exists()
     }
 
     fun `I click on the image button`() {

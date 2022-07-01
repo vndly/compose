@@ -1,4 +1,4 @@
-package com.mauriciotogneri.composetest.image.state
+package com.mauriciotogneri.composetest.screens.image.state
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

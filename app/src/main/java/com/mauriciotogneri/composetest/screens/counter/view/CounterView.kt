@@ -1,4 +1,4 @@
-package com.mauriciotogneri.composetest.counter.view
+package com.mauriciotogneri.composetest.screens.counter.view
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,7 +12,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import com.mauriciotogneri.composetest.R
 import com.mauriciotogneri.composetest.base.BaseView
-import com.mauriciotogneri.composetest.counter.state.CounterState
+import com.mauriciotogneri.composetest.screens.counter.state.CounterState
 import com.mauriciotogneri.composetest.ui.theme.ComposeTestTheme
 
 class CounterView(private val state: CounterState) : BaseView() {
@@ -35,8 +35,11 @@ class CounterView(private val state: CounterState) : BaseView() {
                 count = state.counter.value,
                 callback = { state.increaseCounter() }
             )
-            NewScreenButton(
-                callback = { state.openNewScreen() }
+            ImageScreenButton(
+                callback = { state.openImageScreen() }
+            )
+            CoroutinesButton(
+                callback = { state.openCoroutinesScreen() }
             )
         }
     }
@@ -47,17 +50,27 @@ class CounterView(private val state: CounterState) : BaseView() {
             modifier = Modifier.testTag("counterButton"),
             onClick = { callback() }
         ) {
-            Text(stringResource(R.string.counter_button, count))
+            Text(stringResource(R.string.counter_button_increase, count))
         }
     }
 
     @Composable
-    fun NewScreenButton(callback: () -> Unit) {
+    fun ImageScreenButton(callback: () -> Unit) {
         Button(
             modifier = Modifier.testTag("imageButton"),
             onClick = { callback() }
         ) {
-            Text(stringResource(R.string.image_button))
+            Text(stringResource(R.string.counter_button_imageScreen))
+        }
+    }
+
+    @Composable
+    fun CoroutinesButton(callback: () -> Unit) {
+        Button(
+            modifier = Modifier.testTag("imageButton"),
+            onClick = { callback() }
+        ) {
+            Text(stringResource(R.string.counter_button_imageScreen))
         }
     }
 }
