@@ -3,19 +3,21 @@ package com.mauriciotogneri.composetest.base
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.lifecycle.ViewModelProvider
+import kotlin.reflect.KClass
 
-abstract class BaseActivity<S, V> : ComponentActivity() where S : BaseState, V : BaseView {
+abstract class BaseActivity<S : BaseState, V : BaseView> : ComponentActivity() {
     lateinit var state: S
     lateinit var view: V
 
-    abstract fun createState(): S
+    abstract fun stateClass(): KClass<S>
 
     abstract fun createView(): V
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        state = createState()
+        state = ViewModelProvider(this).get(stateClass().java)
         view = createView()
 
         setContent {

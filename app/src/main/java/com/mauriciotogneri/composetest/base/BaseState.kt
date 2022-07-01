@@ -1,5 +1,7 @@
 package com.mauriciotogneri.composetest.base
 
-open class BaseState {
+import androidx.lifecycle.ViewModel
+
+open class BaseState: ViewModel() {
     fun onDestroy() {}
 }
