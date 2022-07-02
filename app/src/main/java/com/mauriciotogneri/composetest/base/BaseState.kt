@@ -23,6 +23,13 @@ open class BaseState : ViewModel() {
     fun <T> asyncIO(block: suspend CoroutineScope.() -> T): Deferred<T> =
         viewModelScope.async(Dispatchers.IO, block = block)
 
+    suspend fun <T> awaitDefault(block: suspend CoroutineScope.() -> T): T =
+        asyncDefault(block).await()
+
+    suspend fun <T> awaitMain(block: suspend CoroutineScope.() -> T): T = asyncMain(block).await()
+
+    suspend fun <T> awaitIO(block: suspend CoroutineScope.() -> T): T = asyncIO(block).await()
+
     suspend fun <T> suspendDefault(block: suspend CoroutineScope.() -> T) =
         withContext(Dispatchers.Default, block = block)
 

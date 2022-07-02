@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.mauriciotogneri.composetest.base.BaseState
 import kotlinx.coroutines.delay
+import kotlin.system.measureTimeMillis
 
 // Scopes:
 // CoroutineScope()
@@ -50,7 +51,6 @@ class CoroutinesState : BaseState() {
 
     fun testSuspend() {
         launchDefault {
-            // Isn't the same? val text = greetings()
             val text = suspendDefault {
                 greetings()
             }
