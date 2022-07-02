@@ -55,7 +55,7 @@ class CoroutinesState : BaseState() {
         }
     }
 
-    private suspend fun greetings(): String {
+    suspend fun greetings(): String {
         stall()
 
         return "Hello, world!"
