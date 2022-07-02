@@ -24,8 +24,7 @@ abstract class BaseActivity<S : BaseState, V : BaseView> : ComponentActivity() {
     }
 
     override fun onDestroy() {
-        view.onDestroy()
-        state.onDestroy()
+        view.onCleared()
 
         super.onDestroy()
     }

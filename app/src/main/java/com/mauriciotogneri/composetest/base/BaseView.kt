@@ -6,5 +6,5 @@ abstract class BaseView {
     @Composable
     abstract fun Root()
 
-    fun onDestroy() {}
+    fun onCleared() {}
 }

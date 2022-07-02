@@ -31,6 +31,4 @@ open class BaseState : ViewModel() {
 
     suspend fun <T> suspendIO(block: suspend CoroutineScope.() -> T) =
         withContext(Dispatchers.IO, block = block)
-
-    fun onDestroy() {}
 }

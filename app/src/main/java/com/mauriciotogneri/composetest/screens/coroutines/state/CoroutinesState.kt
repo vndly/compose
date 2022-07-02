@@ -7,7 +7,9 @@ import com.mauriciotogneri.composetest.base.BaseState
 import kotlinx.coroutines.delay
 
 // Scopes:
+// CoroutineScope()
 // MainScope()
+// viewModelScope
 // lifecycleScope
 
 // Dispatchers:
