@@ -7,8 +7,8 @@
     <string name="counter_button_imageScreen">Open image</string>
     <string name="counter_button_coroutinesScreen">Open coroutines</string>
 
-    <string name="coroutines_button_test1">Test 1</string>
-    <string name="coroutines_button_test2">Test 2</string>
-    <string name="coroutines_button_test3">Test 3</string>
+    <string name="coroutines_button_testLaunch">Test Launch</string>
+    <string name="coroutines_button_testAsync">Test Async</string>
+    <string name="coroutines_button_testSuspend">Test Suspend</string>
 
 </resources>

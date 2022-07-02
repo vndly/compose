@@ -28,16 +28,16 @@ class CoroutinesView(private val state: CoroutinesState) : BaseView() {
     fun Content() {
         Column {
             TestButton(
-                textResId = R.string.coroutines_button_test1,
-                callback = { state.test1() }
+                textResId = R.string.coroutines_button_testLaunch,
+                callback = { state.testLaunch() }
             )
             TestButton(
-                textResId = R.string.coroutines_button_test2,
-                callback = { state.test2() }
+                textResId = R.string.coroutines_button_testAsync,
+                callback = { state.testAsync() }
             )
             TestButton(
-                textResId = R.string.coroutines_button_test3,
-                callback = { state.test3() }
+                textResId = R.string.coroutines_button_testSuspend,
+                callback = { state.testSuspend() }
             )
         }
     }
