@@ -12,8 +12,8 @@ class CounterActivity : BaseActivity<CounterState, CounterView>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        state.onOpenImageScreen.observe(this, ::onOpenImageScreen)
-        state.onOpenCoroutinesScreen.observe(this, ::onOpenCoroutinesScreen)
+        registerEvent(state.onOpenImageScreen, ::onOpenImageScreen)
+        registerEvent(state.onOpenCoroutinesScreen, ::onOpenCoroutinesScreen)
     }
 
     override fun createState() = CounterStateFactory(this).get()
@@ -22,6 +22,5 @@ class CounterActivity : BaseActivity<CounterState, CounterView>() {
 
     private fun onOpenImageScreen(url: String) = startActivity(ImageActivity.intent(url, this))
 
-    private fun onOpenCoroutinesScreen(nothing: Nothing?) =
-        startActivity(CoroutinesActivity.intent(this))
+    private fun onOpenCoroutinesScreen() = startActivity(CoroutinesActivity.intent(this))
 }
