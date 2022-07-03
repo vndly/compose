@@ -32,7 +32,7 @@ abstract class BaseActivity<S : BaseState, V : BaseView> : ComponentActivity() {
         super.onDestroy()
     }
 
-    fun <T> registerEvent(event: Event<T>, observer: Observer<T>) = event.observe(this, observer)
+    fun <T> registerEvent(event: Event<T>, observer: (T) -> Unit) = event.observe(this, observer)
 
-    fun registerEvent(event: EmptyEvent, observer: () -> Unit) = event.observe(this, { observer() })
+    fun registerEvent(event: EmptyEvent, observer: () -> Unit) = event.observe(this) { observer() }
 }
