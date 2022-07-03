@@ -3,9 +3,8 @@ package com.mauriciotogneri.composetest.base
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.lifecycle.Observer
-import com.mauriciotogneri.composetest.screens.counter.state.EmptyEvent
-import com.mauriciotogneri.composetest.screens.counter.state.Event
+import com.mauriciotogneri.composetest.common.EmptyEvent
+import com.mauriciotogneri.composetest.common.Event
 
 abstract class BaseActivity<S : BaseState, V : BaseView> : ComponentActivity() {
     lateinit var state: S
