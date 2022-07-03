@@ -17,7 +17,9 @@ class ImageView(private val state: ImageState) : BaseView() {
     override fun Root() {
         ComposeTestTheme {
             Surface(
-                modifier = Modifier.fillMaxSize().testTag("imageScreen"),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .testTag("imageScreen"),
                 color = MaterialTheme.colors.background
             ) {
                 Content()

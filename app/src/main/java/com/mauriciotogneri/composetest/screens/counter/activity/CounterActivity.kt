@@ -22,5 +22,6 @@ class CounterActivity : BaseActivity<CounterState, CounterView>() {
 
     private fun onOpenImageScreen(url: String) = startActivity(ImageActivity.intent(url, this))
 
-    private fun onOpenCoroutinesScreen(nothing: Nothing?) = startActivity(CoroutinesActivity.intent(this))
+    private fun onOpenCoroutinesScreen(nothing: Nothing?) =
+        startActivity(CoroutinesActivity.intent(this))
 }
