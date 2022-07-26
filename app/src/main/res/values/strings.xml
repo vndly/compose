@@ -6,6 +6,7 @@
     <string name="counter_button_increase">Clicked %d times</string>
     <string name="counter_button_imageScreen">Open image</string>
     <string name="counter_button_coroutinesScreen">Open coroutines</string>
+    <string name="counter_button_retrofit">Call API</string>
 
     <string name="coroutines_button_testLaunch">Test Launch</string>
     <string name="coroutines_button_testAsync">Test Async</string>

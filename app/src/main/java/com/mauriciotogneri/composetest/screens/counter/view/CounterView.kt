@@ -41,6 +41,9 @@ class CounterView(private val state: CounterState) : BaseView() {
             CoroutinesButton(
                 callback = { state.openCoroutinesScreen() }
             )
+            RetrofitButton(
+                callback = { state.callApi() }
+            )
         }
     }
 
@@ -71,6 +74,16 @@ class CounterView(private val state: CounterState) : BaseView() {
             onClick = { callback() }
         ) {
             Text(stringResource(R.string.counter_button_coroutinesScreen))
+        }
+    }
+
+    @Composable
+    fun RetrofitButton(callback: () -> Unit) {
+        Button(
+            modifier = Modifier.testTag("retrofitButton"),
+            onClick = { callback() }
+        ) {
+            Text(stringResource(R.string.counter_button_retrofit))
         }
     }
 }
