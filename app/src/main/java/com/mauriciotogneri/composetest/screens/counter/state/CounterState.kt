@@ -29,7 +29,7 @@ class CounterState : BaseState() {
     fun callApi() {
         launchIO {
             val response = try {
-                TodoApi.api.call()
+                TodoApi.getTodos.call()
             } catch (e: Exception) {
                 e.printStackTrace()
                 return@launchIO
