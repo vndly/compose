@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import com.mauriciotogneri.composetest.base.BaseActivity
 import com.mauriciotogneri.composetest.screens.image.state.ImageState
-import com.mauriciotogneri.composetest.screens.image.state.ImageStateFactory
 import com.mauriciotogneri.composetest.screens.image.view.ImageView
 
 class ImageActivity : BaseActivity<ImageState, ImageView>() {
@@ -17,7 +16,7 @@ class ImageActivity : BaseActivity<ImageState, ImageView>() {
         }
     }
 
-    override fun createState() = ImageStateFactory(this, intent.getStringExtra("url")!!).get()
+    override fun createState() = ImageState(intent.getStringExtra("url")!!)
 
     override fun createView() = ImageView(state)
 }

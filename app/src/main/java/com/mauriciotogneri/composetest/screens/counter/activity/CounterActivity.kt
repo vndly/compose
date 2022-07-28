@@ -5,7 +5,6 @@ import android.widget.Toast
 import com.mauriciotogneri.composetest.base.BaseActivity
 import com.mauriciotogneri.composetest.screens.coroutines.activity.CoroutinesActivity
 import com.mauriciotogneri.composetest.screens.counter.state.CounterState
-import com.mauriciotogneri.composetest.screens.counter.state.CounterStateFactory
 import com.mauriciotogneri.composetest.screens.counter.view.CounterView
 import com.mauriciotogneri.composetest.screens.image.activity.ImageActivity
 
@@ -18,7 +17,7 @@ class CounterActivity : BaseActivity<CounterState, CounterView>() {
         registerEvent(state.onShowToast, ::showToast)
     }
 
-    override fun createState() = CounterStateFactory(this).get()
+    override fun createState() = CounterState()
 
     override fun createView() = CounterView(state)
 
