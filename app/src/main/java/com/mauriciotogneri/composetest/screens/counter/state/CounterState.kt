@@ -5,25 +5,20 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import com.mauriciotogneri.composetest.api.TodoApi
 import com.mauriciotogneri.composetest.base.BaseState
-import com.mauriciotogneri.composetest.common.EmptyEvent
-import com.mauriciotogneri.composetest.common.Event
 import com.mauriciotogneri.composetest.screens.counter.model.Counter
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
-class CounterState : BaseState() {
+class CounterState(private val observer: CounterStateObserver) : BaseState() {
     var counter by mutableStateOf(Counter())
-
-    val onOpenImageScreen = Event<String>()
-    val onOpenCoroutinesScreen = EmptyEvent()
-    val onShowToast = Event<String>()
 
     fun increaseCounter() {
         counter = Counter(counter.value + 1)
     }
 
-    fun openImageScreen() =
-        onOpenImageScreen.send("https://foo.com/image")
+    fun openImageScreen() = observer.openImageScreen("https://foo.com/image")
 
-    fun openCoroutinesScreen() = onOpenCoroutinesScreen.send()
+    fun openCoroutinesScreen() = observer.openCoroutinesScreen()
 
     fun callApi() {
         launchIO {
@@ -34,7 +29,17 @@ class CounterState : BaseState() {
                 return@launchIO
             }
 
-            onShowToast.send("${response.body()!!.size}")
+            withContext(Dispatchers.Main) {
+                observer.showToast("${response.body()!!.size}")
+            }
         }
     }
+}
+
+interface CounterStateObserver {
+    fun openImageScreen(url: String)
+
+    fun openCoroutinesScreen()
+
+    fun showToast(text: String)
 }
