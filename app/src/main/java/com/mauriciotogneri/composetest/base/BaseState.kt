@@ -3,6 +3,8 @@ package com.mauriciotogneri.composetest.base
 import kotlinx.coroutines.*
 
 open class BaseState {
+    fun onCleared() {}
+
     fun defaultLaunch(block: suspend CoroutineScope.() -> Unit): Job =
         CoroutineScope(Dispatchers.Default).launch(Dispatchers.Default, block = block)
 

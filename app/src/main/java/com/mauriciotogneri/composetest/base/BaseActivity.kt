@@ -3,8 +3,6 @@ package com.mauriciotogneri.composetest.base
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.mauriciotogneri.composetest.common.EmptyEvent
-import com.mauriciotogneri.composetest.common.Event
 
 abstract class BaseActivity<S : BaseState, V : BaseView> : ComponentActivity() {
     lateinit var state: S
@@ -27,11 +25,8 @@ abstract class BaseActivity<S : BaseState, V : BaseView> : ComponentActivity() {
 
     override fun onDestroy() {
         view.onCleared()
+        state.onCleared()
 
         super.onDestroy()
     }
-
-    fun <T> registerEvent(event: Event<T>, observer: (T) -> Unit) = event.observe(this, observer)
-
-    fun registerEvent(event: EmptyEvent, observer: () -> Unit) = event.observe(this) { observer() }
 }
