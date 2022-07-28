@@ -15,12 +15,12 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun extraSingleton() = "This is the extra"
-
-    @Singleton
-    @Provides
     fun providesSingleton(
         extra: String,
         @ApplicationContext context: Context
     ) = "${context.getString(R.string.app_name)} - $extra"
+
+    @Singleton
+    @Provides
+    fun repository(): Repository = RepositoryImpl()
 }

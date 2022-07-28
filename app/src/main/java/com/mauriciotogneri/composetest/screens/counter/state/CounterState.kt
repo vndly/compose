@@ -7,16 +7,21 @@ import com.mauriciotogneri.composetest.api.TodoApi
 import com.mauriciotogneri.composetest.base.BaseState
 import com.mauriciotogneri.composetest.common.Coroutines.ioLaunch
 import com.mauriciotogneri.composetest.common.Coroutines.mainLaunch
+import com.mauriciotogneri.composetest.di.Repository
 import com.mauriciotogneri.composetest.screens.counter.model.Counter
 
-class CounterState(private val observer: CounterStateObserver) : BaseState() {
+class CounterState constructor(
+    private val observer: CounterStateObserver,
+    private val repository: Repository,
+) : BaseState() {
     var counter by mutableStateOf(Counter())
 
     fun increaseCounter() {
         counter = Counter(counter.value + 1)
     }
 
-    fun openImageScreen() = observer.openImageScreen("https://foo.com/image")
+    fun openImageScreen() =
+        observer.openImageScreen("https://foo.com/image/${repository.testMethod()}")
 
     fun openCoroutinesScreen() = observer.openCoroutinesScreen()
 
