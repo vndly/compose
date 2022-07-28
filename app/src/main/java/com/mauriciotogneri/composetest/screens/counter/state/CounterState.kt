@@ -5,6 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import com.mauriciotogneri.composetest.api.TodoApi
 import com.mauriciotogneri.composetest.base.BaseState
+import com.mauriciotogneri.composetest.common.Coroutines.ioLaunch
+import com.mauriciotogneri.composetest.common.Coroutines.mainLaunch
 import com.mauriciotogneri.composetest.screens.counter.model.Counter
 
 class CounterState(private val observer: CounterStateObserver) : BaseState() {

@@ -1,6 +1,9 @@
 package com.mauriciotogneri.composetest.screens.coroutines.state
 
 import com.mauriciotogneri.composetest.base.BaseState
+import com.mauriciotogneri.composetest.common.Coroutines.defaultAsync
+import com.mauriciotogneri.composetest.common.Coroutines.defaultLaunch
+import com.mauriciotogneri.composetest.common.Coroutines.defaultSuspend
 import kotlinx.coroutines.delay
 
 // Scopes:
