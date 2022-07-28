@@ -9,7 +9,10 @@ import com.mauriciotogneri.composetest.api.TodoApi
 import com.mauriciotogneri.composetest.base.BaseState
 import com.mauriciotogneri.composetest.common.EmptyEvent
 import com.mauriciotogneri.composetest.common.Event
+import com.mauriciotogneri.composetest.di.Repository
 import com.mauriciotogneri.composetest.screens.counter.model.Counter
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
 class CounterState : BaseState() {
     var counter by mutableStateOf(Counter())
@@ -22,7 +25,8 @@ class CounterState : BaseState() {
         counter = Counter(counter.value + 1)
     }
 
-    fun openImageScreen() = onOpenImageScreen.send("https://foo.com/image")
+    fun openImageScreen() =
+        onOpenImageScreen.send("https://foo.com/image")
 
     fun openCoroutinesScreen() = onOpenCoroutinesScreen.send()
 
@@ -43,5 +47,5 @@ class CounterState : BaseState() {
 class CounterStateFactory(
     private val lifecycle: ViewModelStoreOwner,
 ) {
-    fun get() = ViewModelProvider(lifecycle).get(CounterState::class.java)
+    fun get() = ViewModelProvider(lifecycle)[CounterState::class.java]
 }

@@ -19,5 +19,5 @@ class ImageStateFactory(
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T = ImageState(url) as T
 
-    fun get() = ViewModelProvider(lifecycle, this).get(ImageState::class.java)
+    fun get() = ViewModelProvider(lifecycle, this)[ImageState::class.java]
 }

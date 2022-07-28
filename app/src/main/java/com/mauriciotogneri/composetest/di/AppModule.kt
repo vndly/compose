@@ -16,7 +16,7 @@ object AppModule {
     @Singleton
     @Provides
     fun extraSingleton() = "This is the extra"
-    
+
     @Singleton
     @Provides
     fun providesSingleton(

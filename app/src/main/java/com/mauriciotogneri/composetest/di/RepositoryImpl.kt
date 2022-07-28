@@ -1,5 +1,7 @@
 package com.mauriciotogneri.composetest.di
 
-class RepositoryImpl : Repository {
+import javax.inject.Inject
+
+class RepositoryImpl @Inject constructor() : Repository {
     override fun testMethod(): Int = 42
 }

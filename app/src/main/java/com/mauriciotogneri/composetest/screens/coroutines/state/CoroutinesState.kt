@@ -72,5 +72,5 @@ class CoroutinesStateFactory(
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T = CoroutinesState() as T
 
-    fun get() = ViewModelProvider(lifecycle, this).get(CoroutinesState::class.java)
+    fun get() = ViewModelProvider(lifecycle, this)[CoroutinesState::class.java]
 }
