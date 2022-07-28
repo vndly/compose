@@ -15,7 +15,7 @@ import kotlinx.coroutines.delay
 // Dispatchers.IO
 class CoroutinesState : BaseState() {
     fun testLaunch() {
-        val job = launchDefault {
+        val job = defaultLaunch {
             println("This is executed before the first delay")
             stall()
             println("This is executed after the first delay")
@@ -28,8 +28,8 @@ class CoroutinesState : BaseState() {
     }
 
     fun testAsync() {
-        launchDefault {
-            val deferred = asyncDefault {
+        defaultLaunch {
+            val deferred = defaultAsync {
                 stall()
                 println("This is executed after the delay")
                 42
@@ -46,8 +46,8 @@ class CoroutinesState : BaseState() {
     }
 
     fun testSuspend() {
-        launchDefault {
-            val text = suspendDefault {
+        defaultLaunch {
+            val text = defaultSuspend {
                 greetings()
             }
             println(text)

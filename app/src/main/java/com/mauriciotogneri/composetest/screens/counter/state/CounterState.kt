@@ -6,8 +6,6 @@ import androidx.compose.runtime.setValue
 import com.mauriciotogneri.composetest.api.TodoApi
 import com.mauriciotogneri.composetest.base.BaseState
 import com.mauriciotogneri.composetest.screens.counter.model.Counter
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 class CounterState(private val observer: CounterStateObserver) : BaseState() {
     var counter by mutableStateOf(Counter())
@@ -21,15 +19,15 @@ class CounterState(private val observer: CounterStateObserver) : BaseState() {
     fun openCoroutinesScreen() = observer.openCoroutinesScreen()
 
     fun callApi() {
-        launchIO {
+        ioLaunch {
             val response = try {
                 TodoApi.getTodos.call()
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@launchIO
+                return@ioLaunch
             }
 
-            withContext(Dispatchers.Main) {
+            mainLaunch {
                 observer.showToast("${response.body()!!.size}")
             }
         }
