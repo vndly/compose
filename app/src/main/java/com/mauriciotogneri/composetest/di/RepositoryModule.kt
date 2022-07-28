@@ -1,4 +1,4 @@
-package com.mauriciotogneri.composetest.dependency
+package com.mauriciotogneri.composetest.di
 
 import dagger.Binds
 import dagger.Module
