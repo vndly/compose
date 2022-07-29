@@ -17,6 +17,8 @@ abstract class BaseActivity<S : BaseState, V : BaseView> : ComponentActivity() {
 
         state = createState()
         view = createView()
+        
+        state.onLoad()
 
         setContent {
             view.Root()
@@ -24,8 +26,8 @@ abstract class BaseActivity<S : BaseState, V : BaseView> : ComponentActivity() {
     }
 
     override fun onDestroy() {
-        view.onCleared()
-        state.onCleared()
+        view.onDestroy()
+        state.onDestroy()
 
         super.onDestroy()
     }
