@@ -6,7 +6,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.mauriciotogneri.composetest.screens.jetpack.view.JetpackView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class JetpackActivity : ComponentActivity() {
     companion object {
         fun intent(param: String, context: Context): Intent {
