@@ -44,6 +44,9 @@ class CounterView(private val state: CounterState) : BaseView() {
             RetrofitButton(
                 callback = { state.callApi() }
             )
+            JetpackButton(
+                callback = { state.openJetpackScreen() }
+            )
         }
     }
 
@@ -84,6 +87,16 @@ class CounterView(private val state: CounterState) : BaseView() {
             onClick = { callback() }
         ) {
             Text(stringResource(R.string.counter_button_retrofit))
+        }
+    }
+
+    @Composable
+    fun JetpackButton(callback: () -> Unit) {
+        Button(
+            modifier = Modifier.testTag("jetpackButton"),
+            onClick = { callback() }
+        ) {
+            Text(stringResource(R.string.counter_button_jetpack))
         }
     }
 }

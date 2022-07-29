@@ -25,6 +25,8 @@ class CounterState constructor(
 
     fun openCoroutinesScreen() = observer.openCoroutinesScreen()
 
+    fun openJetpackScreen() = observer.openJetpackScreen("It works!")
+
     fun callApi() {
         ioLaunch {
             val response = try {
@@ -45,6 +47,8 @@ interface CounterStateObserver {
     fun openImageScreen(url: String)
 
     fun openCoroutinesScreen()
+
+    fun openJetpackScreen(param: String)
 
     fun showToast(text: String)
 }

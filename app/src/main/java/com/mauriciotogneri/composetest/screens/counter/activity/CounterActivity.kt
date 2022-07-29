@@ -8,6 +8,7 @@ import com.mauriciotogneri.composetest.screens.counter.state.CounterState
 import com.mauriciotogneri.composetest.screens.counter.state.CounterStateObserver
 import com.mauriciotogneri.composetest.screens.counter.view.CounterView
 import com.mauriciotogneri.composetest.screens.image.activity.ImageActivity
+import com.mauriciotogneri.composetest.screens.jetpack.activity.JetpackActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -24,6 +25,8 @@ class CounterActivity : BaseActivity<CounterState, CounterView>(), CounterStateO
     override fun openImageScreen(url: String) = startActivity(ImageActivity.intent(url, this))
 
     override fun openCoroutinesScreen() = startActivity(CoroutinesActivity.intent(this))
+
+    override fun openJetpackScreen(param: String) = startActivity(JetpackActivity.intent(param, this))
 
     override fun showToast(text: String) = Toast.makeText(this, text, Toast.LENGTH_LONG).show()
 }
