@@ -2,7 +2,7 @@ package com.mauriciotogneri.composetest.screens.counter.activity
 
 import android.widget.Toast
 import com.mauriciotogneri.composetest.base.BaseActivity
-import com.mauriciotogneri.composetest.di.Repository
+import com.mauriciotogneri.composetest.repository.Repository
 import com.mauriciotogneri.composetest.screens.coroutines.activity.CoroutinesActivity
 import com.mauriciotogneri.composetest.screens.counter.state.CounterState
 import com.mauriciotogneri.composetest.screens.counter.state.CounterStateObserver

@@ -1,4 +1,4 @@
-package com.mauriciotogneri.composetest.di
+package com.mauriciotogneri.composetest.repository
 
 class RepositoryImpl : Repository {
     override fun testMethod(): Int = 42

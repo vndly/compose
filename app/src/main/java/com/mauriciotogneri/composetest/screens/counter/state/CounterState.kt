@@ -7,7 +7,7 @@ import com.mauriciotogneri.composetest.api.TodoApi
 import com.mauriciotogneri.composetest.base.BaseState
 import com.mauriciotogneri.composetest.common.Coroutines.ioLaunch
 import com.mauriciotogneri.composetest.common.Coroutines.mainLaunch
-import com.mauriciotogneri.composetest.di.Repository
+import com.mauriciotogneri.composetest.repository.Repository
 import com.mauriciotogneri.composetest.screens.counter.model.Counter
 
 class CounterState constructor(

@@ -1,4 +1,4 @@
-package com.mauriciotogneri.composetest.di
+package com.mauriciotogneri.composetest.repository
 
 interface Repository {
     fun testMethod(): Int
