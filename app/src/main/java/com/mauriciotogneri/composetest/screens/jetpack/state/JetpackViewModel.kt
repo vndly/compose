@@ -5,8 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import com.mauriciotogneri.composetest.repository.Repository
-import com.mauriciotogneri.composetest.usercase.UseCase
+import com.mauriciotogneri.composetest.usecase.UseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -16,6 +15,6 @@ class JetpackViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     var param: String by mutableStateOf(
-        (savedStateHandle.get<String>("param") ?: "") + useCase.getValue()
+        (savedStateHandle.get<String>("param") ?: "") + useCase()
     )
 }

@@ -4,8 +4,8 @@ import android.content.Context
 import com.mauriciotogneri.composetest.R
 import com.mauriciotogneri.composetest.repository.Repository
 import com.mauriciotogneri.composetest.repository.RepositoryImpl
-import com.mauriciotogneri.composetest.usercase.UseCase
-import com.mauriciotogneri.composetest.usercase.UseCaseImpl
+import com.mauriciotogneri.composetest.usecase.UseCase
+import com.mauriciotogneri.composetest.usecase.UseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
