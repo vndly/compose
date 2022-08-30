@@ -6,5 +6,5 @@ import androidx.compose.runtime.setValue
 import com.mauriciotogneri.composetest.base.BaseState
 
 class ImageState(url: String) : BaseState() {
-    var url by mutableStateOf(url)
+    var url: String by mutableStateOf(url)
 }

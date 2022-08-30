@@ -8,6 +8,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.tooling.preview.Preview
 import com.mauriciotogneri.composetest.base.BaseView
 import com.mauriciotogneri.composetest.screens.image.state.ImageState
 import com.mauriciotogneri.composetest.ui.theme.ComposeTestTheme
@@ -33,4 +34,10 @@ class ImageView(private val state: ImageState) : BaseView() {
             Text(text = state.url)
         }
     }
+}
+
+class ImageViewPreview {
+    @Preview
+    @Composable
+    fun preview() = ImageView(ImageState("")).Root()
 }
