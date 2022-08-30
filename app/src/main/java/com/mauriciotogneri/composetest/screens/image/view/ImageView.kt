@@ -39,5 +39,5 @@ class ImageView(private val state: ImageState) : BaseView() {
 class ImageViewPreview {
     @Preview
     @Composable
-    fun preview() = ImageView(ImageState("")).Root()
+    fun preview() = ImageView(ImageState("YES")).Root()
 }
